@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomePage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="386dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/welcome_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="Welcome."
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="324dp"
+                android:layout_weight="0"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/userName_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Username :"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/firstName_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="First name :"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/lastName_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Last name :"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/dateOfBirth_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Date of Birth :"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/phoneNumb_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Phone # :"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="326dp"
+                android:layout_weight="0"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/userName_tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Username :"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/firstName_tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="First name :"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/lastName_tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Last name :"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/dateOfBirth_tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Date of Birth :"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/phoneNumb_tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Phone # :"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

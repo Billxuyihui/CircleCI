@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_manage_service_type"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ManageServiceType">
+
+    <EditText
+        android:id="@+id/serviceType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter service type" />
+
+    <EditText
+        android:id="@+id/hourlyRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/serviceType"
+        android:hint="Enter hourly rate" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_below="@id/serviceType"
+        android:layout_centerInParent="true"
+        android:layout_weight="1"
+        android:text="Add" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addButton"
+        android:text="Products"
+        android:textAlignment="center"
+        />
+    <ListView
+        android:id="@+id/listViewServices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stView">
+    </ListView>
+
+</RelativeLayout>

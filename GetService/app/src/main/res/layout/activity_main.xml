@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/usernameTextMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="75dp"
+            android:layout_marginRight="75dp"
+            android:layout_marginTop="100dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Username"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/passwordTextMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="75dp"
+            android:layout_marginRight="75dp"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="60dp"
+            android:text="Sign in" />
+
+        <Button
+            android:id="@+id/btnCreateOwner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="50dp"
+            android:text="Sign up as home owner"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnCreateProvider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:text="Sign up as service provider"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
