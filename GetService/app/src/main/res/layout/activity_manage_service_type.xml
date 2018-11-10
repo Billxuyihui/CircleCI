@@ -10,21 +10,23 @@
         android:id="@+id/serviceType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter service type" />
+        android:hint="Enter service type"
+        android:gravity="center"/>
 
     <EditText
         android:id="@+id/hourlyRate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/serviceType"
-        android:hint="Enter hourly rate" />
+        android:hint="Enter hourly rate"
+        android:gravity="center"/>
 
     <Button
         android:id="@+id/addButton"
-        android:layout_width="wrap_content"
+        android:layout_width="166dp"
         android:layout_height="37dp"
-        android:layout_below="@id/serviceType"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/hourlyRate"
+        android:layout_centerHorizontal="true"
         android:layout_weight="1"
         android:text="Add" />
 
@@ -32,15 +34,19 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/addButton"
-        android:text="Products"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/addButton"
+        android:text="Services:"
         android:textAlignment="center"
-        />
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="30sp" />
+
     <ListView
         android:id="@+id/listViewServices"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/stView">
-    </ListView>
+        android:layout_height="336dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="175dp"></ListView>
 
 </RelativeLayout>

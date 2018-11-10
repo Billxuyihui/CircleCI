@@ -26,11 +26,11 @@ public class ServiceTypeList extends ArrayAdapter<ServiceType> {
         View listViewItem = inflater.inflate(R.layout.activity_services_list, null, true);
 
         TextView textViewName = (TextView) listViewItem.findViewById(R.id.serviceType);
-        TextView textViewPrice = (TextView) listViewItem.findViewById(R.id.hourlyRate);
+        TextView textViewRate = (TextView) listViewItem.findViewById(R.id.hourlyRate);
 
         ServiceType service = services.get(position);
         textViewName.setText(service.getService());
-        textViewPrice.setText(String.valueOf(service.getHourlyRate()));
+        textViewRate.setText(String.valueOf(service.getHourlyRate())+"$");
         return listViewItem;
     }
 
