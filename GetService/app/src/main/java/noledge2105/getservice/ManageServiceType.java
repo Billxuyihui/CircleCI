@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import android.view.inputmethod.InputMethodManager;
 
 import java.security.cert.PolicyNode;
 import java.util.List;
@@ -126,11 +127,17 @@ public class ManageServiceType extends AppCompatActivity {
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try {
                 String name = editName.getText().toString().trim();
                 double rate = Double.parseDouble(String.valueOf(editRate.getText().toString()));
-                if (!TextUtils.isEmpty(name)) {
-                    updateService(Id, name, rate);
-                    b.dismiss();
+
+                    if (!TextUtils.isEmpty(name)) {
+                        updateService(Id, name, rate);
+                        b.dismiss();
+                    }
+                }catch(Exception e){
+                    Toast.makeText( ManageServiceType.this,"Please enter a service name and a number for hourly rate", Toast.LENGTH_LONG).show();
+
                 }
             }
         });
@@ -145,53 +152,68 @@ public class ManageServiceType extends AppCompatActivity {
     }
 
     private void updateService(String id, String name, double rate) {
-        //getting the specified product reference
-        DatabaseReference dRef = FirebaseDatabase.getInstance().getReference("services").child(id);
-        //updating product
-        ServiceType service = new ServiceType(id, name, rate);
-        dRef.setValue(service);
+        try {
 
-        Toast.makeText(getApplicationContext(), "Service type Updated", Toast.LENGTH_LONG).show();
+            DatabaseReference dRef = FirebaseDatabase.getInstance().getReference("services").child(id);
+
+            ServiceType service = new ServiceType(id, name, rate);
+            dRef.setValue(service);
+
+            Toast.makeText(getApplicationContext(), "Service type Updated", Toast.LENGTH_LONG).show();
+
+        }catch(Exception e){
+            Toast.makeText(this, "Please enter a service name and a number for hourly rate", Toast.LENGTH_LONG).show();
+        }
     }
 
     private boolean deleteService(String id) {
-        //getting the specified product reference
+
+
         DatabaseReference dRef = FirebaseDatabase.getInstance().getReference("services").child(id);
-        //removing product
+
         dRef.removeValue();
         Toast.makeText(getApplicationContext(), "Service type Deleted", Toast.LENGTH_LONG).show();
         return true;
     }
 
     private void addService() {
-        //getting the values to save
-        String name = editTextService.getText().toString().trim();
-        double rate = Double.parseDouble(String.valueOf(editTextHourlyRate.getText().toString()));
+        try {
 
-        //checking if the value is provided
-        if (!TextUtils.isEmpty(name)){
-            //getting a unique id using push().getKey() method
-            // it will create a unique id and we will use it as the Primary Key for our Product
-            String id = databaseServices.push().getKey();
 
-            //creating a Product Object
-            ServiceType serv = new ServiceType(id, name, rate);
+            String name = editTextService.getText().toString().trim();
+            double rate = Double.parseDouble(String.valueOf(editTextHourlyRate.getText().toString()));
 
-            //Saving the Product
-            databaseServices.child(id).setValue(serv);
 
-            //setting edittext to blank again
-            editTextService.setText("");
-            editTextHourlyRate.setText("");
+            if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(String.valueOf(rate))) {
 
-            //displaying a success toast
-            Toast.makeText(this, "Service type added", Toast.LENGTH_LONG).show();
+                String id = databaseServices.push().getKey();
 
-        }else{
-            // if the value is not given displaying a toast
-            Toast.makeText(this, "Please enter a service name", Toast.LENGTH_LONG).show();
+
+                ServiceType serv = new ServiceType(id, name, rate);
+
+
+                databaseServices.child(id).setValue(serv);
+
+
+                editTextService.setText("");
+                editTextHourlyRate.setText("");
+
+                hideSoftKeyboard();
+                Toast.makeText(this, "Service type added", Toast.LENGTH_LONG).show();
+
+            } else {
+
+                Toast.makeText(this, "Please enter a service name", Toast.LENGTH_LONG).show();
+            }
+
+        }catch(Exception e){
+            Toast.makeText(this, "Please enter a service name and a number for hourly rate", Toast.LENGTH_LONG).show();
         }
-
-
+    }
+    private void hideSoftKeyboard() {
+        if(getCurrentFocus()!=null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
     }
 }

@@ -44,7 +44,7 @@
     <ListView
         android:id="@+id/listViewServices"
         android:layout_width="match_parent"
-        android:layout_height="336dp"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="175dp"></ListView>
