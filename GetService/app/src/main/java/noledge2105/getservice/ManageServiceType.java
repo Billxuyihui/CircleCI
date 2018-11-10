@@ -133,6 +133,7 @@ public class ManageServiceType extends AppCompatActivity {
                 double rate = Double.parseDouble(String.valueOf(editRate.getText().toString()));
                     updateService(Id,Name,rate);
                     b.dismiss();
+                    hideSoftKeyboard();
                     boolean same=false;
 
 
