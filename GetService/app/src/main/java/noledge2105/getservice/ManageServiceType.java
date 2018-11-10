@@ -108,14 +108,14 @@ public class ManageServiceType extends AppCompatActivity {
     }
 
 
-    private void showUpdateDeleteDialog(final String Id, String Name) {
+    private void showUpdateDeleteDialog(final String Id, final String Name) {
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         final View dialogView = inflater.inflate(R.layout.update_dialog, null);
         dialogBuilder.setView(dialogView);
 
-        final EditText editName = (EditText) dialogView.findViewById(R.id.editName);
+
         final EditText editRate  = (EditText) dialogView.findViewById(R.id.editRate);
         final Button buttonUpdate = (Button) dialogView.findViewById(R.id.buttonUpdateService);
         final Button buttonDelete = (Button) dialogView.findViewById(R.id.buttonDeleteService);
@@ -124,31 +124,21 @@ public class ManageServiceType extends AppCompatActivity {
         final AlertDialog b = dialogBuilder.create();
         b.show();
 
+
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                String name = editName.getText().toString().trim();
-                double rate = Double.parseDouble(String.valueOf(editRate.getText().toString()));
 
+                double rate = Double.parseDouble(String.valueOf(editRate.getText().toString()));
+                    updateService(Id,Name,rate);
+                    b.dismiss();
                     boolean same=false;
 
-                    for (ServiceType sT : services){
-                        if (sT.getService().equals(name)){
-                            same=true;
-                        }
-                    }
-                    if(! same) {
 
-                        if (!TextUtils.isEmpty(name)) {
-                             updateService(Id, name, rate);
-                             b.dismiss();
-                        }
-                    }else {
-                        Toast.makeText(ManageServiceType.this, "This service type already exists. Please enter another service name", Toast.LENGTH_LONG).show();
-                    }
+
                 }catch(Exception e){
-                    Toast.makeText( ManageServiceType.this,"Please enter a service name and a number for hourly rate", Toast.LENGTH_LONG).show();
+                    Toast.makeText( ManageServiceType.this,"Please enter a number for hourly rate", Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -180,6 +170,7 @@ public class ManageServiceType extends AppCompatActivity {
             Toast.makeText(this, "Please enter a service name and a number for hourly rate", Toast.LENGTH_LONG).show();
         }
     }
+
 
     private boolean deleteService(String id) {
 

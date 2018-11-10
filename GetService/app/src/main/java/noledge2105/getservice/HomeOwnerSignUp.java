@@ -45,22 +45,28 @@ public class HomeOwnerSignUp extends AppCompatActivity {
                                 ) error = true;
                         //Error = true if there was a error so we don't come here
                         if(!error) {
-                            Intent returnIntent = new Intent(HomeOwnerSignUp.this, MainActivity.class);
-                            Bundle extras = new Bundle();
+                            if (! username.getText().toString().equals("admin")) {
+                                Intent returnIntent = new Intent(HomeOwnerSignUp.this, MainActivity.class);
+                                Bundle extras = new Bundle();
 
-                            extras.putString("username", username.getText().toString());
-                            extras.putString("password", password.getText().toString());
-                            extras.putString("firstname", firstName.getText().toString());
-                            extras.putString("lastname", lastName.getText().toString());
-                            extras.putString("dateOfBirth", dateOfBirth.getText().toString());
-                            extras.putString("phoneNumber", phoneNumber.getText().toString());
-                            extras.putInt("permLevel", 2);
+                                extras.putString("username", username.getText().toString());
+                                extras.putString("password", password.getText().toString());
+                                extras.putString("firstname", firstName.getText().toString());
+                                extras.putString("lastname", lastName.getText().toString());
+                                extras.putString("dateOfBirth", dateOfBirth.getText().toString());
+                                extras.putString("phoneNumber", phoneNumber.getText().toString());
+                                extras.putInt("permLevel", 2);
 
-                            returnIntent.putExtras(extras);
+                                returnIntent.putExtras(extras);
 
-                            setResult(RESULT_OK, returnIntent);
+                                setResult(RESULT_OK, returnIntent);
 
-                            finish();
+                                finish();
+                            }else{
+                                Toast.makeText(getApplicationContext(),
+                                        "This user name is not availiable.",
+                                        Toast.LENGTH_LONG).show();
+                            }
                         }
                         else
                             Toast.makeText(getApplicationContext(),

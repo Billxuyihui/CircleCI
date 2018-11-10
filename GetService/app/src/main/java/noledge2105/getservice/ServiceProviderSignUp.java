@@ -58,36 +58,39 @@ public class ServiceProviderSignUp extends AppCompatActivity {
                         {
                             error = true;
                         }
+                        if(! username.getText().toString().equals("admin")) {
+                            //Error = true if there was a error so we dont come here
+                            if (!error) {
+                                Intent returnIntent = new Intent(ServiceProviderSignUp.this, MainActivity.class);
+                                Bundle extras = new Bundle();
+                                try {
+                                    extras.putString("username", username.getText().toString());
+                                    extras.putString("password", password.getText().toString());
+                                    extras.putString("firstname", firstName.getText().toString());
+                                    extras.putString("lastname", lastName.getText().toString());
+                                    extras.putString("dateOfBirth", dateOfBirth.getText().toString());
+                                    extras.putString("phoneNumber", phoneNumber.getText().toString());
+                                    extras.putString("serviceType", serviceType.getText().toString());
+                                    extras.putDouble("hourlyRate", Double.parseDouble(hourlyRate.getText().toString()));
+                                    extras.putInt("permLevel", 1);
 
-                        //Error = true if there was a error so we dont come here
-                        if(!error) {
-                            Intent returnIntent = new Intent(ServiceProviderSignUp.this, MainActivity.class);
-                            Bundle extras = new Bundle();
-                            try {
-                                extras.putString("username", username.getText().toString());
-                                extras.putString("password", password.getText().toString());
-                                extras.putString("firstname", firstName.getText().toString());
-                                extras.putString("lastname", lastName.getText().toString());
-                                extras.putString("dateOfBirth", dateOfBirth.getText().toString());
-                                extras.putString("phoneNumber", phoneNumber.getText().toString());
-                                extras.putString("serviceType", serviceType.getText().toString());
-                                extras.putDouble("hourlyRate", Double.parseDouble(hourlyRate.getText().toString()));
-                                extras.putInt("permLevel", 1);
+                                    returnIntent.putExtras(extras);
 
-                                returnIntent.putExtras(extras);
+                                    setResult(RESULT_OK, returnIntent);
 
-                                setResult(RESULT_OK, returnIntent);
+                                    finish();
+                                } catch (Exception ex) {
 
-                                finish();
+                                }
                             }
-                            catch(Exception ex)
-                            {
-
-                            }
-                        }
-                        Toast.makeText(getApplicationContext(),
+                            Toast.makeText(getApplicationContext(),
                                     "Please make sure that no field are empty and hourly rate is a number",
                                     Toast.LENGTH_LONG).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(),
+                                    "This user name is not availiable.",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
         );
