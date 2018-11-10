@@ -32,8 +32,8 @@
             android:layout_marginRight="75dp"
             android:layout_marginTop="25dp"
             android:ems="10"
-            android:hint="Password"
             android:gravity="center"
+            android:hint="Password"
             android:inputType="textPassword" />
 
         <Button
@@ -41,9 +41,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="50dp"
             android:layout_marginRight="60dp"
-            android:text="Sign in" />
+            android:layout_marginTop="50dp"
+            android:text="Sign in"
+            android:textColor="@android:color/holo_blue_dark" />
 
         <Button
             android:id="@+id/btnCreateOwner"
@@ -54,6 +55,7 @@
             android:layout_marginTop="50dp"
             android:text="Sign up as home owner"
             android:textAllCaps="false"
+            android:textColor="@android:color/holo_blue_dark"
             android:textSize="18sp" />
 
         <Button
@@ -64,6 +66,7 @@
             android:layout_marginRight="60dp"
             android:text="Sign up as service provider"
             android:textAllCaps="false"
+            android:textColor="@android:color/holo_blue_dark"
             android:textSize="18sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

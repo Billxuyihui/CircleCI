@@ -131,9 +131,21 @@ public class ManageServiceType extends AppCompatActivity {
                 String name = editName.getText().toString().trim();
                 double rate = Double.parseDouble(String.valueOf(editRate.getText().toString()));
 
-                    if (!TextUtils.isEmpty(name)) {
-                        updateService(Id, name, rate);
-                        b.dismiss();
+                    boolean same=false;
+
+                    for (ServiceType sT : services){
+                        if (sT.getService().equals(name)){
+                            same=true;
+                        }
+                    }
+                    if(! same) {
+
+                        if (!TextUtils.isEmpty(name)) {
+                             updateService(Id, name, rate);
+                             b.dismiss();
+                        }
+                    }else {
+                        Toast.makeText(ManageServiceType.this, "This service type already exists. Please enter another service name", Toast.LENGTH_LONG).show();
                     }
                 }catch(Exception e){
                     Toast.makeText( ManageServiceType.this,"Please enter a service name and a number for hourly rate", Toast.LENGTH_LONG).show();
@@ -154,12 +166,15 @@ public class ManageServiceType extends AppCompatActivity {
     private void updateService(String id, String name, double rate) {
         try {
 
+
             DatabaseReference dRef = FirebaseDatabase.getInstance().getReference("services").child(id);
 
             ServiceType service = new ServiceType(id, name, rate);
             dRef.setValue(service);
 
+            hideSoftKeyboard();
             Toast.makeText(getApplicationContext(), "Service type Updated", Toast.LENGTH_LONG).show();
+
 
         }catch(Exception e){
             Toast.makeText(this, "Please enter a service name and a number for hourly rate", Toast.LENGTH_LONG).show();
@@ -183,27 +198,37 @@ public class ManageServiceType extends AppCompatActivity {
             String name = editTextService.getText().toString().trim();
             double rate = Double.parseDouble(String.valueOf(editTextHourlyRate.getText().toString()));
 
+            boolean same=false;
 
-            if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(String.valueOf(rate))) {
+            for (ServiceType sT : services){
+                if (sT.getService().equals(name)){
+                    same=true;
+                }
+            }
+            if(! same) {
+                if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(String.valueOf(rate))) {
 
-                String id = databaseServices.push().getKey();
+                    String id = databaseServices.push().getKey();
 
 
-                ServiceType serv = new ServiceType(id, name, rate);
+                    ServiceType serv = new ServiceType(id, name, rate);
 
 
-                databaseServices.child(id).setValue(serv);
+                    databaseServices.child(id).setValue(serv);
 
 
-                editTextService.setText("");
-                editTextHourlyRate.setText("");
+                    editTextService.setText("");
+                    editTextHourlyRate.setText("");
 
-                hideSoftKeyboard();
-                Toast.makeText(this, "Service type added", Toast.LENGTH_LONG).show();
+                    hideSoftKeyboard();
+                    Toast.makeText(this, "Service type added", Toast.LENGTH_LONG).show();
 
-            } else {
+                } else {
 
-                Toast.makeText(this, "Please enter a service name", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Please enter a service name", Toast.LENGTH_LONG).show();
+                }
+            }else{
+                Toast.makeText(this, "This service type already exists. Please enter another service name", Toast.LENGTH_LONG).show();
             }
 
         }catch(Exception e){

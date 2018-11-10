@@ -28,7 +28,8 @@
         android:layout_below="@+id/hourlyRate"
         android:layout_centerHorizontal="true"
         android:layout_weight="1"
-        android:text="Add" />
+        android:text="Add"
+        android:textColor="@android:color/holo_blue_dark" />
 
     <TextView
         android:id="@+id/textView"

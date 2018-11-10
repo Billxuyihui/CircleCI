@@ -62,6 +62,7 @@
             android:id="@+id/btnCreate1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create" />
+            android:text="Create"
+            android:textColor="@android:color/holo_blue_dark" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
